@@ -13,7 +13,7 @@
                 <my-fd-reserve></my-fd-reserve>
             </div>
         </div>
-        <hr>
+        <br>
         <div class="columns has-text-centered">
             <div class="column is-12">
 
@@ -28,10 +28,10 @@
 </template>
 
 <script>
-    import termInformation from '../../components/utils/termInformation.vue';
-    import studentInformation from '../../components/utils/studentInformation.vue';
-    import foodReservationInformation from '../../components/utils/foodReservationInformation.vue';
-    import newsInformation from '../../components/utils/newsInformation.vue';
+    import termInformation from '@/components/utils/termInformation.vue';
+    import studentInformation from '@/components/utils/studentInformation.vue';
+    import foodReservationInformation from '@/components/utils/foodReservationInformation.vue';
+    import newsInformation from '@/components/utils/newsInformation.vue';
 
     export default {
         data() {
@@ -44,6 +44,10 @@
             'my-std-info': studentInformation,
             'my-fd-reserve': foodReservationInformation,
             'my-news-info': newsInformation,
+        },
+        created() {
+            const loadingComponent = this.$loading.open()
+            setTimeout(() => loadingComponent.close(), 1 * 1000)
         }
     }
 </script>

@@ -29,7 +29,7 @@
 <script>
   import {
     Bus
-  } from '../main.js'
+  } from '@/main.js'
 
   export default {
     data() {
