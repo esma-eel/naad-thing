@@ -1,32 +1,91 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="container is-fluid is-marginless">
+    <div class="columns is-gapless ">
+      <div class="column   is-one-fifth ">
+        <my-menu></my-menu>
+      </div>
+<!-- remember to write and config css class color again
+  and some padding and margin classes
+ -->
+      <div class="column  is-four-fifths "> 
+        <my-navbar></my-navbar>
+        <br><br>
+        <router-view class="my-main-padding"/>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Menu from './components/Menu.vue'
+import NavBar from './components/NavBar.vue'
+import Content from './components/Content.vue'
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    'my-menu': Menu,
+    'my-navbar': NavBar,
+    'my-content': Content,
+  }
 }
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<style lang="scss">
+  
+  .my-main-padding {
+    padding: 1%;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .my-white{
+    background-color:  hsl(0, 0%, 100%)  !important;
+    color:  hsl(0, 0%, 4%)  !important;
+
+  }
+
+  .my-black {
+    background-color: hsl(0, 0, 4%) !important;
+    color:   hsl(0, 0%, 100%)   !important;
+  }
+
+  .my-light {
+    background-color : hsl(0, 0, 96%) !important;
+    color:   	hsl(0, 0%, 21%)  !important;
+  }
+
+  .my-dark {
+    background-color :  hsl(0, 0%, 21%) !important; 
+    color:  hsl(0, 0%, 96%)  !important;
+  }
+
+  .my-primary {
+    background-color :  hsl(171, 100%, 41%)  !important;
+    color:   hsl(0, 0%, 100%)   !important;
+  }
+
+  .my-link {
+    background-color :  hsl(217, 71%, 53%) !important;
+    color:  hsl(0, 0%, 100%)   !important;
+  }
+
+  .my-info {
+    background-color :   hsl(204, 86%, 53%)  !important;
+    color:   hsl(0, 0%, 100%)   !important;
+  }
+
+  .my-success {
+    background-color :   hsl(141, 71%, 48%)  !important;
+    color:   hsl(0, 0%, 100%)  !important;
+  }
+
+  .my-warning {
+    background-color :   hsl(48, 100%, 67%)  !important;
+    color:   rgba(0, 0, 0, 0.7)   !important;
+  }
+
+  .my-danger {
+    background-color :   hsl(348, 100%, 61%)  !important;
+    color:  hsl(0, 0%, 100%)  !important;
+  }
+
 </style>
+
