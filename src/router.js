@@ -1,27 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Dashboard from './views/general/Dashboard.vue';
-import studentInformation from './views/general/studentInformation.vue';
-import Setting from './views/settings/Setting.vue';
-import charSadoChar from './views/general/404.vue';
-
-//
-import addAndDeleteUnit from './views/management/addAndDeleteUnit.vue';
-import chooseUnit from './views/management/chooseUnit.vue';
-import mailBox from './views/management/mailBox.vue';
-import termLog from './views/management/termLog.vue';
-import Maali from './views/management/Maali.vue';
-import weeklySchedule from './views/management/weeklySchedule.vue';
-//
-import chargeAccount from './views/requestService/chargeAccount.vue';
-import preChooseUnit from './views/requestService/preChooseUnit.vue';
-import rqEteraz from './views/requestService/rqEteraz.vue';
-import rqGovahi from './views/requestService/rqGovahi.vue';
-import rqOrderFood from './views/requestService/rqOrderFood.vue';
-
-
 Vue.use(Router)
+
+//general
+const Dashboard = () => import('@/views/general/Dashboard.vue');
+const studentInformation = () => import('@/views/general/studentInformation.vue');
+const charSadoChar = () => import('@/views/general/404.vue');
+//management
+const addAndDeleteUnit = () => import('@/views/management/addAndDeleteUnit.vue');
+const chooseUnit = () => import('@/views/management/chooseUnit.vue');
+const mailBox = () => import('@/views/management/mailBox.vue');
+const termLog = () => import('@/views/management/termLog.vue');
+const Maali = () => import('@/views/management/Maali.vue');
+const weeklySchedule = () => import('@/views/management/weeklySchedule.vue');
+// request service
+const chargeAccount = () => import('@/views/requestService/chargeAccount.vue');
+const preChooseUnit = () => import('@/views/requestService/preChooseUnit.vue');
+const rqEteraz = () => import('@/views/requestService/rqEteraz.vue');
+const rqGovahi = () => import('@/views/requestService/rqGovahi.vue');
+const rqOrderFood = () => import('@/views/requestService/rqOrderFood.vue');
+//setting
+const Setting = () => import('@/views/settings/Setting.vue');
 
 export default new Router({
   routes: [
