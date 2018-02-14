@@ -2,9 +2,18 @@
     <div class="setting">
         <div class="columns">
             <div class="column">
+                <template>
+                    <b-message title="پیام سیستم" type="is-success" :active="isAnyThingChanged" class="has-text-right" style="direction: rtl">
+                        <p class="has-text-right">
+                            تغییرات شما با موفقیت ثبت شد.
+                        </p>
+                    </b-message>
+                </template>
+
                 <div class="box">
                     <div class="content">
                         <h4>{{ title }}</h4>
+
                         <br>
                         <form>
                             <div class="switch-theme has-text-right">
@@ -32,7 +41,7 @@
                             <br>
                             <div class="field ">
                                 <div class="control has-text-right">
-                                    <button class="button is-primary">ثبت تغییرات</button>
+                                    <button class="button is-primary" type="submit" @click="handleSubmitSetting">ثبت تغییرات</button>
                                 </div>
                             </div>
                         </form>
@@ -49,6 +58,7 @@
             return {
                 title: 'تنظیمات',
                 selectedTheme: 'مشکی - پیشفرض',
+                isAnyThingChanged: false,
                 selectThemeOptions: [{
                         name: 'آسمانی',
                         class: 'theme-blue',
@@ -67,9 +77,29 @@
                 }
             }
         },
+        methods: {
+            handleSubmitSetting() {
+                if (this.setting.isNotifOn || this.selectedTheme.length > 0) {
+                    this.isAnyThingChanged = true;
+                }
+            }
+        },
+
+        watch: {
+            isAnyThingChanged() {
+                setTimeout(() => {
+                    this.isAnyThingChanged = false;
+                }, 4 * 1000);
+            }
+        },
         beforeCreate() {
             const loadingComponent = this.$loading.open()
             setTimeout(() => loadingComponent.close(), 2 * 1000)
+        },
+        created() {
+            if(this.isAnyThingChanged === true) {
+                this.isAnyThingChanged = false;
+            }
         }
     }
 </script>
