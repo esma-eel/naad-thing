@@ -5,12 +5,14 @@
 </template>
 
 <script>
-export default {
+    export default {
 
-}
+        beforeCreate() {
+            const loadingComponent = this.$loading.open()
+            setTimeout(() => loadingComponent.close(), 2 * 1000)
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
-
