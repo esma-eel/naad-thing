@@ -16,13 +16,13 @@
 
           <template v-if="isThat(little, 'object')">
             <li :key="little.tagText">
-              <router-link to="little.link" class="has-text-light my-hover-warning"
+              <router-link :to="little.link" class="has-text-light my-hover-warning"
               active-class="my-active" exact
               >{{ little.tagText }}</router-link>
             </li>
             <ul>
               <li v-for="subitem in little.items" :key="subitem.tagText">
-                <router-link to="subitem.link" class="has-text-light my-hover-warning"
+                <router-link :to="subitem.link" class="has-text-light my-hover-warning"
                 active-class="my-active"
                 >{{ subitem.tagText }}</router-link>
               </li>

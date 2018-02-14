@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar is-dark is-radiusless">
     <div class="navbar-brand my-navBox">
-      <a class="navbar-item">
+      <router-link :to="link" class="navbar-item">
         سیستم آموزشی ناد
-      </a>
+      </router-link>
       <a class="navbar-item  is-hidden-touch">
         {{ time }}
       </a>
@@ -36,6 +36,7 @@
       return {
         openOrNot: true,
         time: null,
+        link: '/',
       }
     },
     methods: {
