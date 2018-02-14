@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container is-fluid is-marginless">
     <div class="columns is-gapless ">
-      <div class="column   is-one-fifth ">
+      <div class="column is-one-fifth ">
         <my-menu></my-menu>
       </div>
 <!-- remember to write and config css class color again
