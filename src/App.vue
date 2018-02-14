@@ -19,13 +19,11 @@
 <script>
 import Menu from '@/components/Menu.vue'
 import NavBar from '@/components/NavBar.vue'
-import Content from '@/components/Content.vue'
 
 export default {
   components: {
     'my-menu': Menu,
     'my-navbar': NavBar,
-    'my-content': Content,
   }
 }
 </script>
