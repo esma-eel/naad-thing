@@ -4,24 +4,24 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 //general
-const Dashboard = () => import('@/views/general/Dashboard.vue');
-const studentInformation = () => import('@/views/general/studentInformation.vue');
-const charSadoChar = () => import('@/views/general/404.vue');
+const Dashboard = () => import('./views/general/Dashboard.vue');
+const studentInformation = () => import('./views/general/studentInformation.vue');
+const charSadoChar = () => import('./views/general/404.vue');
 //management
-const addAndDeleteUnit = () => import('@/views/management/addAndDeleteUnit.vue');
-const chooseUnit = () => import('@/views/management/chooseUnit.vue');
-const mailBox = () => import('@/views/management/mailBox.vue');
-const termLog = () => import('@/views/management/termLog.vue');
-const Maali = () => import('@/views/management/Maali.vue');
-const weeklySchedule = () => import('@/views/management/weeklySchedule.vue');
+const addAndDeleteUnit = () => import('./views/management/addAndDeleteUnit.vue');
+const chooseUnit = () => import('./views/management/chooseUnit.vue');
+const mailBox = () => import('./views/management/mailBox.vue');
+const termLog = () => import('./views/management/termLog.vue');
+const Maali = () => import('./views/management/Maali.vue');
+const weeklySchedule = () => import('./views/management/weeklySchedule.vue');
 // request service
-const chargeAccount = () => import('@/views/requestService/chargeAccount.vue');
-const preChooseUnit = () => import('@/views/requestService/preChooseUnit.vue');
-const rqEteraz = () => import('@/views/requestService/rqEteraz.vue');
-const rqGovahi = () => import('@/views/requestService/rqGovahi.vue');
-const rqOrderFood = () => import('@/views/requestService/rqOrderFood.vue');
+const chargeAccount = () => import('./views/requestService/chargeAccount.vue');
+const preChooseUnit = () => import('./views/requestService/preChooseUnit.vue');
+const rqEteraz = () => import('./views/requestService/rqEteraz.vue');
+const rqGovahi = () => import('./views/requestService/rqGovahi.vue');
+const rqOrderFood = () => import('./views/requestService/rqOrderFood.vue');
 //setting
-const Setting = () => import('@/views/settings/Setting.vue');
+const Setting = () => import('./views/settings/Setting.vue');
 
 export default new Router({
   routes: [
