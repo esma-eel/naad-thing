@@ -12,7 +12,7 @@
 
                 <div class="box">
                     <div class="content">
-                        <h4>{{ title }}</h4>
+                        <h4 class="is-size-4 has-text-weight-bold">{{ title }}</h4>
 
                         <br>
                         <form>
