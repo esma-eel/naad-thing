@@ -1,6 +1,21 @@
 <template>
     <section>
-<!-- wait to set up vuex and then will do some thing with datas    -->
+        <template>
+            <b-message title="پیام سیستم" type="is-info" :active="sabt" class="has-text-right" style="direction: rtl">
+                <p class="has-text-right">
+                    تغییرات شما با موفقیت ثبت شد.
+                </p>
+            </b-message>
+        </template>
+
+        <template>
+            <b-message title="پیام سیستم" type="is-success" :active="finalSabt" class="has-text-right" style="direction: rtl">
+                <p class="has-text-right">
+                    تغییرات شما با موفقیت ثبت نهایی شد.
+                </p>
+            </b-message>
+        </template>
+        <!-- wait to set up vuex and then will do some thing with datas    -->
         <b-table :data="chosedUnits" :columns="lessonColumns" :checked-rows.sync="checkedRows" checkable>
 
             <template slot="bottom-left">
@@ -33,17 +48,22 @@
 </template>
 
 <script>
-// import vahed1 from './vaheds1.js';
-// import lessonsColumns from './lesseonColumns.js';
+    // import vahed1 from './vaheds1.js';
+    // import lessonsColumns from './lesseonColumns.js';
 
-// let vahedHa = vahed1;
-import {mapGetters} from 'vuex';
-
+    // let vahedHa = vahed1;
+    import {
+        mapGetters
+    } from 'vuex';
+    import {
+        mapActions
+    } from 'vuex';
     export default {
         data() {
 
             return {
-                
+                sabt: false,
+                finalSabt: false,
                 checkedRows: [],
             }
         },
@@ -55,26 +75,41 @@ import {mapGetters} from 'vuex';
             ]),
         },
         methods: {
+            ...mapActions([
+                'deleteSelectedUnit'
+            ]),
+            deleteChecked() {
+                if (this.checkedRows.length > 0) {
+
+                    if (confirm('آیا از حذف خود اطمینان دارید ؟')) {
+                        this.deleteSelectedUnit(this.checkedRows);
+                    }
+
+                } else {
+                    alert('درسی برای حذف وجود ندارد');
+                }
+            },
+            submitChosen() {
+                this.sabt = true;
+            },
+            finalSubmit() {
+                this.finalSabt = true;
+            },
+        },
+        watch: {
+            sabt() {
+                setTimeout(() => {
+                    this.sabt = false;
+                }, 4 * 1000);
+            },
+            finalSabt() {
+                setTimeout(() => {
+                    this.finalSabt = false;
+                }, 4 * 1000);
+            },
             
-            deleteChecked() {},
-            submitChosen() {},
-            finalSubmit() {},
-        }
+        },
     }
-
-    
-                // if (this.checkedRows.length > 0) {
-
-                //     for (let i = this.lessensData.length - 1; i >= 0; i--) {
-                //         for (let x = this.checkedRows.length - 1; x >= 0; x--) {
-                //             if (this.lessensData[i].id === this.checkedRows[x].id) {
-                //                 this.lessensData.splice(i, 1);
-                //                 this.checkedRows.splice(x, 1);
-                //             }
-                //         }
-                //     }
-                // }
-            
 </script>
 
 <style lang="scss" scoped>

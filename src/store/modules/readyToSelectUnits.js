@@ -20,6 +20,20 @@ const mutations = {
             state.chosedUnits.push(element)
         });
         //state.chosedUnits = chosedUnits;
+    },
+    'DELETE_CHOSED_UNIT' (state, unitsToDelete) {
+        if (unitsToDelete.length > 0) {
+
+            state.chosedUnits.forEach((element, indix) => {
+                unitsToDelete.forEach((item, index) => {
+                    if (element === item) {
+                        state.chosedUnits.splice(indix, 1);
+                        unitsToDelete.splice(index, 1);
+                    }
+                })
+            })
+
+        }
     }
 };
 
@@ -34,9 +48,17 @@ const actions = {
     }) {
         commit('SET_LESSON_COLUMNS', lessonColumnsOriginal);
     },
-    setChosedUnits({commit}, choosen) {
-        
+    setChosedUnits({
+        commit
+    }, choosen) {
+
         commit('SET_CHOSED_UNITS', choosen);
+    },
+    deleteSelectedUnit({
+        commit
+    }, unitsToDelete) {
+
+        commit('DELETE_CHOSED_UNIT', unitsToDelete);
     }
 
 };
