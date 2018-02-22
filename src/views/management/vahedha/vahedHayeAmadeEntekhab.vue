@@ -18,7 +18,7 @@
             </p>
 
         </div>
-        <p>{{chosedUnits}}</p>
+
     </section>
 </template>
 
