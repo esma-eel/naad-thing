@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style lang="scss">
-  
   .my-main-padding {
     padding: 1%;
   }
