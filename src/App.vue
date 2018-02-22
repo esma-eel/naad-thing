@@ -21,6 +21,11 @@ import Menu from '@/components/Menu.vue'
 import NavBar from '@/components/NavBar.vue'
 
 export default {
+  created() {
+    this.$store.dispatch('initLessonData');
+    this.$store.dispatch('initlessonColumns');
+  }
+  ,
   components: {
     'my-menu': Menu,
     'my-navbar': NavBar,

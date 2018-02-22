@@ -2,7 +2,7 @@
 
     <section>
         <!-- wait to set up vuex and then will do some thing with datas    -->
-        <b-table :data="lessensData" :columns="lessonsColumns" :checked-rows.sync="checkedRows" checkable>
+        <b-table :data="lessonData" :columns="lessonColumns" :checked-rows.sync="checkedRows" checkable>
 
             <template slot="bottom-left">
                 <b>تعداد دروس انتخاب شده</b>: {{ checkedRows.length }}
@@ -18,40 +18,55 @@
             </p>
 
         </div>
-
+        <p>{{chosedUnits}}</p>
     </section>
 </template>
 
 <script>
-import vahed1 from './vaheds1.js';
-import lessonsColumns from './lesseonColumns.js';
+    import {
+        mapGetters
+    } from 'vuex';
+    import {
+        mapActions
+    } from 'vuex';
 
     export default {
         data() {
             return {
-                lessensData: vahed1,
                 checkedRows: [],
-                lessonsColumns,
-                zarfiateEntekhabShodeh: 0,
             }
         },
+        computed: {
+            ...mapGetters([
+                'lessonData',
+                'lessonColumns',
+                'chosedUnits'
+            ]),
+        },
         methods: {
-            //checkedRows = []" :disabled="!checkedRows.length
-            deleteChecked() {
-                if (this.checkedRows.length > 0) {
-
-                    for (let i = this.lessensData.length - 1; i >= 0; i--) {
-                        for (let x = this.checkedRows.length - 1; x >= 0; x--) {
-                            if (this.lessensData[i].id === this.checkedRows[x].id) {
-                                this.lessensData.splice(i, 1);
-                                this.checkedRows.splice(x, 1);
-                            }
+            ...mapActions([
+                'setChosedUnits',
+            ]),
+            selectUnit() {
+                let tekrariNist = [];
+                if (this.chosedUnits.length > 0) {
+                    tekrariNist = this.checkedRows.filter((element) => {
+                        if (this.chosedUnits.includes(element)) {
+                            alert(`درس  ${element.name_dars} قبلا انتخاب شده است.`)
+                        } else {
+                            return element;
                         }
-                    }
+                    });
+                    this.setChosedUnits(tekrariNist);
+                } else {
+                    this.setChosedUnits(this.checkedRows);
                 }
+
+
+
+                this.checkedRows = [];
             },
-            submitChosen() {},
-            finalSubmit() {},
+
         }
     }
 </script>
