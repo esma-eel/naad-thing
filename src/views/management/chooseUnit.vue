@@ -1,11 +1,37 @@
 <template>
-    <div>
-        <h1 class="is-size-1">Entekhab Vahed.vue</h1>
+    <div class="choose-unit">
+        <div class="box my-light">
+            <div class="content">
+                <h4 class="has-text-weight-bold is-size-4">{{ title1 }}</h4>
+                <my-shode></my-shode>
+            </div>
+        </div>
+
+        <div class="box my-light">
+            <div class="content">
+                <h4 class="has-text-weight-bold is-size-4">{{ title2 }}</h4>
+                <my-amadeh></my-amadeh>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import vahedHayeAmade from './vahedha/vahedHayeAmadeEntekhab.vue';
+import vahedHayeEntekhabShode from './vahedha/vahedHayeEntekhabShode.vue';
+
     export default {
+        data() {
+            return {
+                title1: 'واحد های انتخاب شده',
+                title2: 'انتخاب واحد از لیست زیر'
+
+            }
+        },
+        components: {
+            'my-amadeh': vahedHayeAmade,
+            'my-shode' : vahedHayeEntekhabShode,
+        },
         beforeCreate() {
             const loadingComponent = this.$loading.open()
             setTimeout(() => loadingComponent.close(), 2 * 1000)
