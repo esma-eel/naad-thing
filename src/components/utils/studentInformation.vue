@@ -4,10 +4,10 @@
           <div class="content">
               <h4>{{ title }}</h4>
               <hr>
-              <p>نام دانشجو : {{ student_information.name }}</p>
-              <p>شماره دانشجویی : {{ student_information.stdId }}</p>
-              <p>واحد گذرانده : {{ student_information.unit_passed }}</p>
-              <p>واحد مانده : {{ student_information.unit_remained}}</p>
+              <p>نام دانشجو : {{ stDetail.stName + ' ' + stDetail.stLastName}}</p>
+              <p>شماره دانشجویی : {{ stDetail.stNumberId }}</p>
+              <p>واحد گذرانده : {{ stDetail.allVahedPassed }}</p>
+              <p>واحد مانده : {{ stDetail.allVahedRemained}}</p>
           </div>
       </div>
   </div>
@@ -15,15 +15,10 @@
 
 <script>
 export default {
+     props: ['stDetail'],
     data() {
         return {
             title: 'اطلاعات دانشجو',
-            student_information: {
-                name: 'اسماعیل کمیجانی',
-                stdId: 96120033111000,
-                unit_passed: 16,
-                unit_remained: 60,
-            }
         }
     }
 }

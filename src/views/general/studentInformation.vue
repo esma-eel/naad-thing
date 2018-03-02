@@ -6,24 +6,24 @@
                 <br>
                 <div class="columns">
                     <div class="column is-one-third">
-                        <p>نام :‌ {{basic.studentFirstName}}</p>
-                        <p>نام خانوادگی :‌ {{basic.studentLastName}}</p>
-                        <p>تاریخ تولد :‌{{basic.birthDay}}</p>
-                        <p>شماره ملی :‌ {{basic.idCardNumber}}</p>
-                        <p>شماره دانشجویی :‌ {{basic.idStudentCardNumber}}</p>
+                        <p>نام :‌ {{stDetail.stName}}</p>
+                        <p>نام خانوادگی :‌ {{stDetail.stLastName}}</p>
+                        <p>تاریخ تولد :‌{{stDetail.stBirthDate}}</p>
+                        <p>شماره ملی :‌ {{stDetail.stIdNumber}}</p>
+                        <p>شماره دانشجویی :‌ {{stDetail.stNumberId}}</p>
                     </div>
                     <div class="column is-one-third">
-                        <p>وضعیت نظام وظیفه :‌ {{basic.nezamVazifeStatus}}</p>
-                        <p>ورودی سال :‌ {{basic.voroodiSale}}</p>
-                        <p>شبانه یا روزانه : {{basic.shabaneOrRuzane}}</p>
-                        <p>ترم :‌ {{basic.termNumber}}</p>
-                        <p>تعداد واحد اخذ شده :‌ {{basic.unitGetedThisTermNumber}}</p>
+                        <p>وضعیت نظام وظیفه :‌ {{stDetail.nezamVazife}}</p>
+                        <p>ورودی سال :‌ {{stDetail.enterDate}}</p>
+                        <p>شبانه یا روزانه : {{stDetail.shabOrRooz}}</p>
+                        <p>ترم :‌ {{stDetail.stTerm}}</p>
+                        <p>تعداد واحد اخذ شده :‌ {{stDetail.vahedGetted}}</p>
                     </div>
                     <div class="column is-one-third">
-                        <p>تعداد واحد گذرانده در ترم {{basic.termNumber}} :‌ {{basic.unitPassedThisTermNumber}}</p>
-                        <p>کل واحد های گذرانده :‌ {{basic.unitPassedNumber}}</p>
-                        <p>کل واحد های مانده :‌ {{basic.unitRemaindNumber}}</p>
-                        <p>وضعیت فارغ التحصیلی :‌ {{basic.FareghTahsiliStatus}}</p>
+                        <p>تعداد واحد گذرانده در ترم {{stDetail.stTerm}} :‌ {{stDetail.vahedPased}}</p>
+                        <p>کل واحد های گذرانده :‌ {{stDetail.allVahedPassed}}</p>
+                        <p>کل واحد های مانده :‌ {{stDetail.allVahedRemained}}</p>
+                        <p>وضعیت فارغ التحصیلی :‌ {{stDetail.graduatedStatus}}</p>
                     </div>
                 </div>
             </div>
@@ -32,21 +32,21 @@
         <!--  -->
         <div class="box my-light">
             <div class="content">
-                <h4 class="is-size-4 has-text-weight-bold">{{parvandeh.title}}</h4>
+                <h4 class="is-size-4 has-text-weight-bold">{{title2}}</h4>
                 <br>
                 <div class="columns">
                     <div class="column is-one-third">
-                        <p>پرونده بایگانی شده : {{ parvandeh.parvandehBaygani }}</p>
-                        <p>معاف شده : {{ parvandeh.moafShode }}</p>
-                        <p>کپی شناسنامه : {{ parvandeh.copyShenasnameh }}</p>
-                        <p>۶ قطعه عکس : {{ parvandeh.ax3x4 }}</p>
-                        <p>مدرک کاردانی : {{ parvandeh.madrakeKardani }}</p>
+                        <p>پرونده بایگانی شده : {{ stDetail.parvandehBayganiShode }}</p>
+                        <p>معاف شده : {{ stDetail.moaafShodeh }}</p>
+                        <p>کپی شناسنامه : {{ stDetail.copyShenasnameh }}</p>
+                        <p>۶ قطعه عکس : {{ stDetail.sixPicture }}</p>
+                        <p>مدرک کاردانی : {{ stDetail.madrakeKardani }}</p>
                     </div>
-                     <div class="column is-one-third">
-                        <p>شماره تلفن منزل : {{ parvandeh.shomarehManzel }}</p>
-                        <p>آدرس منزل : {{ parvandeh.address }}</p>
-                        <p>شماره تلفن همراه : {{ parvandeh.shomarehMobile }}</p>
-                        <p> شماره تلفن همراه ضروری : {{ parvandeh.shomarehMobileZaroori }}</p>
+                    <div class="column is-one-third">
+                        <p>شماره تلفن منزل : {{ stDetail.homePhoneNumber }}</p>
+                        <p>آدرس منزل : {{ stDetail.homeAddress }}</p>
+                        <p>شماره تلفن همراه : {{ stDetail.cellPhoneNumber }}</p>
+                        <p> شماره تلفن همراه ضروری : {{ stDetail.essentialCellPhoneNumber }}</p>
                     </div>
                 </div>
             </div>
@@ -55,43 +55,20 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
         data() {
             return {
                 title: 'اطلاعات دانشجو',
-                basic: {
-                    studentFirstName: 'اسماعیل',
-                    studentLastName: 'کمیحانی',
-                    termNumber: '۹۶۱',
-                    unitPassedNumber: '۶۰',
-                    unitRemaindNumber: '۵۰',
-                    unitGetedThisTermNumber: '۲۰',
-                    unitPassedThisTermNumber: '۰',
-                    nezamVazifeStatus: 'معافیت تحصیلی',
-                    FareghTahsiliStatus: 'خیر',
-                    voroodiSale: '۹۶',
-                    birthDay: '۷۶/۱۲/۲۸',
-                    idCardNumber: '۰۵۰۰۷۰۰۸۰۰',
-                    idStudentCardNumber: '۹۶۱۲۰۰۳۳۱۱۱۲۲۲',
-                    shabaneOrRuzane: 'شبانه',
-                },
-                
-                parvandeh: {
-                    title: 'وضعیت پرونده',
-                    parvandehBaygani: 'بله',
-                    moafShode: 'بله',
-                    copyShenasnameh: 'دارد',
-                    ax3x4: 'دارد',
-                    madrakeKardani: 'مدرک تحصیلی کاردانی ارسال نشده.',
-                    address: 'ایران،استان فلان،‌شهر فلان',
-                    shomarehManzel: '۰۰۹۸۷۷۴۴۵۵',
-                    shomarehMobile: '۱۱۲۲۳۳۴۴۵۵۶۶',
-                    shomarehMobileZaroori: '۱۱۲۲۳۳۴۴۵۵۶۶',
-
-                }
+                title2: 'اطلاعات پرونده'   
             }
         },
-
+        computed: {
+            ...mapGetters([
+                'stDetail'
+            ]),
+        },
     }
 </script>
 
