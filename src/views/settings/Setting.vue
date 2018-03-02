@@ -92,10 +92,7 @@
                 }, 4 * 1000);
             }
         },
-        beforeCreate() {
-            const loadingComponent = this.$loading.open()
-            setTimeout(() => loadingComponent.close(), 2 * 1000)
-        },
+        
         created() {
             if(this.isAnyThingChanged === true) {
                 this.isAnyThingChanged = false;

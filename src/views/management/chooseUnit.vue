@@ -32,10 +32,7 @@ import vahedHayeEntekhabShode from './vahedha/vahedHayeEntekhabShode.vue';
             'my-amadeh': vahedHayeAmade,
             'my-shode' : vahedHayeEntekhabShode,
         },
-        beforeCreate() {
-            const loadingComponent = this.$loading.open()
-            setTimeout(() => loadingComponent.close(), 2 * 1000)
-        }
+        
     }
 </script>
 

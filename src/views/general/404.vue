@@ -11,10 +11,7 @@
 
 <script>
     export default {
-        beforeCreate() {
-            const loadingComponent = this.$loading.open()
-            setTimeout(() => loadingComponent.close(), 2 * 1000)
-        }
+       
     }
 </script>
 

@@ -45,10 +45,7 @@
             'my-fd-reserve': foodReservationInformation,
             'my-news-info': newsInformation,
         },
-        created() {
-            const loadingComponent = this.$loading.open()
-            setTimeout(() => loadingComponent.close(), 1 * 1000)
-        }
+       
     }
 </script>
 
