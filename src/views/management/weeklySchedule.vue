@@ -1,12 +1,23 @@
 <template>
     <div>
-        <h1 class="is-size-1">Barname Haftegi.vue</h1>
+        <b-table :data="chosedUnits" :columns="lessonColumns">
+        </b-table>
     </div>
 </template>
 
 <script>
+     import {
+        mapGetters
+    } from 'vuex';
+
     export default {
-        
+        computed: {
+            ...mapGetters([
+                'lessonColumns',
+                'chosedUnits'
+            ]),
+        },
+
     }
 </script>
 
