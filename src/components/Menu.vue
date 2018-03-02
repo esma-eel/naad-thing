@@ -1,7 +1,6 @@
-/* remember responsive and hiding in phones make this things responsive and nice */
 
 <template>
-  <aside class="menu box my-dark my-menu-tall has-text-white-ter is-radiusless" :class="{' is-hidden-touch ':openOrNot,}">
+  <aside class="menu box my-dark my-menu-tall has-text-white-ter is-radiusless" :class="[{' is-hidden-touch ':openOrNot,}, theme.class]">
     <div class="has-text-left is-hidden-desktop">
       <a class="delete is-medium" @click="closeMenu"></a>
     </div>
@@ -16,15 +15,11 @@
 
           <template v-if="isThat(little, 'object')">
             <li :key="little.tagText">
-              <router-link :to="little.link" class="has-text-light my-hover-warning"
-              active-class="my-active" exact
-              >{{ little.tagText }}</router-link>
+              <router-link :to="little.link" class="has-text-light my-hover-warning" active-class="my-active" exact>{{ little.tagText }}</router-link>
             </li>
             <ul>
               <li v-for="subitem in little.items" :key="subitem.tagText">
-                <router-link :to="subitem.link" class="has-text-light my-hover-warning"
-                active-class="my-active"
-                >{{ subitem.tagText }}</router-link>
+                <router-link :to="subitem.link" class="has-text-light my-hover-warning" active-class="my-active">{{ subitem.tagText }}</router-link>
               </li>
             </ul>
           </template>
@@ -46,6 +41,10 @@
 </template>
 
 <script>
+  import {
+    mapGetters
+  } from 'vuex';
+
   import {
     Bus
   } from '@/main.js'
@@ -146,7 +145,11 @@
 
     },
 
-
+computed: {
+  ...mapGetters([
+    'theme'
+  ]),
+},
     created() {
       Bus.$on('openOurMenu', (opening) => {
         this.openOrNot = opening;

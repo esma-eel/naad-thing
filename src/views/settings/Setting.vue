@@ -19,8 +19,7 @@
                             <div class="switch-theme has-text-right">
                                 <b-field label="انتخاب تم">
                                     <b-select placeholder="یک تم انتخاب کنید" class=" has-text-right" v-model="selectedTheme">
-                                        <option v-for="option in selectThemeOptions" :value="option.name" :key="option.name" :selected="selectedTheme">
-
+                                        <option v-for="option in selectThemeOptions" :value="option" :key="option.class" :selected="selectedTheme" @click="selectedThemeObject = option">
                                             {{ option.name }}
                                         </option>
                                     </b-select>
@@ -53,37 +52,45 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+
     export default {
         data() {
             return {
                 title: 'تنظیمات',
-                selectedTheme: 'مشکی - پیشفرض',
+                selectedTheme: {
+                    name: 'مشکی - پیشفرض',
+                    class: 'default-theme',
+                    id: 2,
+                    selected: false,
+                },
                 isAnyThingChanged: false,
-                selectThemeOptions: [{
-                        name: 'آسمانی',
-                        class: 'theme-blue',
-                        id: 1,
-                        selected: true,
-                    },
-                    {
-                        name: 'مشکی - پیشفرض',
-                        class: 'default-theme',
-                        id: 2,
-                        selected: false,
-                    },
-                ],
+                
                 setting: {
                     isNotifOn: true,
                 }
             }
         },
         methods: {
+            ...mapActions([
+                'setTheme',
+            ]),
             handleSubmitSetting() {
                 if (this.setting.isNotifOn || this.selectedTheme.length > 0) {
+                    this.setTheme(this.selectedTheme);
                     this.isAnyThingChanged = true;
+
                 }
             }
         },
+    computed: {
+        ...mapGetters([
+            'theme',
+            'selectThemeOptions'
+        ]),
+    }
+        ,
 
         watch: {
             isAnyThingChanged() {
@@ -92,11 +99,13 @@
                 }, 4 * 1000);
             }
         },
-        
+
         created() {
-            if(this.isAnyThingChanged === true) {
+            if (this.isAnyThingChanged === true) {
                 this.isAnyThingChanged = false;
             }
+
+            this.selectedTheme = this.theme;
         }
     }
 </script>

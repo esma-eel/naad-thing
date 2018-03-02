@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-dark is-radiusless">
+  <nav class="navbar is-dark is-radiusless" :class="[theme.class]">
     <div class="navbar-brand my-navBox">
       <router-link :to="link" class="navbar-item">
         سیستم آموزشی ناد
@@ -28,6 +28,10 @@
 
 <script>
   import {
+    mapGetters
+  } from 'vuex';
+
+  import {
     Bus
   } from '@/main.js'
 
@@ -38,6 +42,12 @@
         time: null,
         link: '/',
       }
+    },
+
+    computed: {
+      ...mapGetters([
+        'theme',
+      ]),
     },
     methods: {
       updateTime() {
