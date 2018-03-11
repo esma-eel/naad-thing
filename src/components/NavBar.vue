@@ -49,15 +49,11 @@
         'theme',
       ]),
     },
+
     methods: {
       updateTime() {
         var currentdate = new Date();
-        var datetime = " " + currentdate.getDate() + "/" +
-          (currentdate.getMonth() + 1) + "/" +
-          currentdate.getFullYear() + " @ " +
-          currentdate.getHours() + ":" +
-          currentdate.getMinutes() + ":" +
-          currentdate.getSeconds();
+        var datetime = currentdate.toLocaleDateString() + '- ** -' + currentdate.toLocaleTimeString();
         this.time = datetime;
       },
       openMenu() {
@@ -77,12 +73,10 @@
     }
 
   }
-
 </script>
 
 <style lang="scss" scoped>
   .my-navBox {
     width: 100%;
   }
-
 </style>
