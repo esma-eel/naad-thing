@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import MenuItemsList from '../data/menu.js';
+
   import {
     mapGetters
   } from 'vuex';
@@ -52,83 +54,7 @@
   export default {
     data() {
       return {
-        menuItems: [{
-            headName: 'تنظیمات',
-            items: [{
-              tagText: 'تنظیمات',
-              link: '/setting'
-            }, ],
-          },
-          {
-            headName: 'عمومی',
-            items: [{
-                tagText: 'پیشخوان',
-                link: '/'
-              },
-              {
-                tagText: 'اطلاعات دانشجو',
-                link: '/studentInformation'
-              }
-            ],
-          },
-          {
-            headName: 'مدیریتی',
-            items: [{
-                tagText: 'امور مالی',
-                link: '/Maali',
-              },
-              {
-                tagText: 'مدیریت واحد های درسی',
-                items: [{
-                    tagText: 'انتخاب واحد',
-                    link: '/chooseUnit',
-                  },
-                  {
-                    tagText: 'حذف و اضافه',
-                    link: '/addAndDeleteUnit',
-                  },
-                  {
-                    tagText: 'برنامه هفتگی',
-                    link: '/weeklySchedule',
-                  },
-                ]
-              },
-              {
-                tagText: 'کارنامه',
-                link: '/termLog'
-              },
-              {
-                tagText: 'صندوق پیام',
-                link: '/mailBox',
-              }
-            ]
-          },
-          {
-            headName: 'درخواست ها و خدمات',
-
-            items: [{
-                tagText: 'پیش انتخاب واحد',
-                link: '/preChooseUnit',
-              },
-              {
-                tagText: 'شارژ حساب کاربری',
-                link: '/chargeAccount',
-              },
-              {
-                tagText: 'صندوق سفارش غذا',
-                link: '/rqOrderFood',
-              },
-              {
-                tagText: 'صندوق درخواست گواهی',
-                link: '/rqGovahi',
-              },
-              {
-                tagText: 'درخواست اعتراض',
-                link: '/rqEteraz',
-              },
-            ],
-          },
-        ],
+        menuItems: MenuItemsList,
         openOrNot: true,
         closeOrNot: false,
       }
