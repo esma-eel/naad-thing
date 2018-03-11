@@ -23,16 +23,14 @@ const mutations = {
     },
     'DELETE_CHOSED_UNIT' (state, unitsToDelete) {
         if (unitsToDelete.length > 0) {
-
-            state.chosedUnits.forEach((element, indix) => {
-                unitsToDelete.forEach((item, index) => {
-                    if (element === item) {
-                        state.chosedUnits.splice(indix, 1);
-                        unitsToDelete.splice(index, 1);
+            for (let i = state.chosedUnits.length - 1; i >= 0; i--) {
+                for (let j = unitsToDelete.length - 1; j >= 0; j--) {
+                    if (state.chosedUnits[i] === unitsToDelete[j]) {
+                        state.chosedUnits.splice(i, 1);
+                        unitsToDelete.splice(j, 1);
                     }
-                })
-            })
-
+                }
+            }
         }
     }
 };
