@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import readyToSelectUnits from './modules/readyToSelectUnits';
 import studentDetails from './modules/studentDetails';
 import setting from './modules/setting';
+import mailBox from './modules/mailBox';
 
 Vue.use(Vuex)
 
@@ -12,7 +13,7 @@ export default new Vuex.Store({
     readyToSelectUnits,
     studentDetails,
     setting,
-    
+    mailBox
   },
   // }
   // state: {

@@ -31,6 +31,7 @@
     created() {
       this.$store.dispatch('initLessonData');
       this.$store.dispatch('initlessonColumns');
+      this.$store.dispatch('initMessages');
     },
     components: {
       'my-menu': Menu,
