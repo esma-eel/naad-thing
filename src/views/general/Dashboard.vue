@@ -24,10 +24,10 @@
 </template>
 
 <script>
-    import termInformation from '@/components/utils/termInformation.vue';
-    import studentInformation from '@/components/utils/studentInformation.vue';
-    import foodReservationInformation from '@/components/utils/foodReservationInformation.vue';
-    import newsInformation from '@/components/utils/newsInformation.vue';
+    import termInformation from './dashboard/termInformation.vue';
+    import studentInformation from './dashboard//studentInformation.vue';
+    import foodReservationInformation from './dashboard//foodReservationInformation.vue';
+    import newsInformation from './dashboard//newsInformation.vue';
     import {mapGetters} from 'vuex';
 
     export default {
