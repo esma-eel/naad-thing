@@ -11,11 +11,7 @@
         <my-navbar></my-navbar>
         <br>
         <br>
-        <transition 
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
-        mode="out-in"
-        >
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
           <router-view class="my-main-padding" />
         </transition>
       </div>
@@ -33,6 +29,7 @@
       this.$store.dispatch('initlessonColumns');
       this.$store.dispatch('initMessages');
       this.$store.dispatch('initPishVahedha');
+      this.$store.dispatch('initFoods');
     },
     components: {
       'my-menu': Menu,
