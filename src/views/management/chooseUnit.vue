@@ -1,24 +1,29 @@
 <template>
     <div class="choose-unit">
         <div class="box my-light">
-            <div class="content">
-                <h4 class="has-text-weight-bold is-size-4">{{ title1 }}</h4>
-                <my-shode></my-shode>
-            </div>
-        </div>
+            <b-tabs>
+                <b-tab-item label="درس های انتخاب شده">
+                    <div class="content">
+                        <h4 class="has-text-weight-bold is-size-4">{{ title1 }}</h4>
+                        <my-shode></my-shode>
+                    </div>
+                </b-tab-item>
 
-        <div class="box my-light">
-            <div class="content">
-                <h4 class="has-text-weight-bold is-size-4">{{ title2 }}</h4>
-                <my-amadeh></my-amadeh>
-            </div>
+                <b-tab-item label="درس های آماده انتخاب">
+                    <div class="content">
+                        <h4 class="has-text-weight-bold is-size-4">{{ title2 }}</h4>
+                        <my-amadeh></my-amadeh>
+                    </div>
+                </b-tab-item>
+            </b-tabs>
+
         </div>
     </div>
 </template>
 
 <script>
-import vahedHayeAmade from './vahedha/vahedHayeAmadeEntekhab.vue';
-import vahedHayeEntekhabShode from './vahedha/vahedHayeEntekhabShode.vue';
+    import vahedHayeAmade from './vahedha/vahedHayeAmadeEntekhab.vue';
+    import vahedHayeEntekhabShode from './vahedha/vahedHayeEntekhabShode.vue';
 
     export default {
         data() {
@@ -30,9 +35,9 @@ import vahedHayeEntekhabShode from './vahedha/vahedHayeEntekhabShode.vue';
         },
         components: {
             'my-amadeh': vahedHayeAmade,
-            'my-shode' : vahedHayeEntekhabShode,
+            'my-shode': vahedHayeEntekhabShode,
         },
-        
+
     }
 </script>
 
