@@ -15,7 +15,6 @@ const termLog = () => import('./views/management/termLog.vue');
 const Maali = () => import('./views/management/Maali.vue');
 const weeklySchedule = () => import('./views/management/weeklySchedule.vue');
 // request service
-const chargeAccount = () => import('./views/requestService/chargeAccount.vue');
 const preChooseUnit = () => import('./views/requestService/preChooseUnit.vue');
 const rqEteraz = () => import('./views/requestService/rqEteraz.vue');
 const rqGovahi = () => import('./views/requestService/rqGovahi.vue');
@@ -64,11 +63,6 @@ export default new Router({
       path: '/weeklySchedule',
       name: 'weeklySchedule',
       component: weeklySchedule
-    },
-    {
-      path: '/chargeAccount',
-      name: 'chargeAccount',
-      component: chargeAccount
     },
     {
       path: '/preChooseUnit',

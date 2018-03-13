@@ -8,6 +8,7 @@
                     <div class="column is-one-third">
                         <p>جمع کل بدهکاری :‌ {{tarazeMali.jameKoliBedehKari}}</p>
                         <p>جمع کل بستانکاری :‌ {{ tarazeMali.jameKoleBestanKari }}</p>
+                        <p>میزان شارژ حساب: {{getCharge}}</p>
                     </div>
 
                     <div class="column is-one-third">
@@ -18,25 +19,54 @@
             </div>
         </div>
 
-        <br> 
+        <br>
 
-        <div class="box my-light">
-            <div class="content">
-                <b-table :data="maliData" :columns="maliColumns"></b-table>
-            </div>
-            <div class="has-text-centered">
-                <a class="button is-info">پرداخت الکترونیکی</a>
-                <a class="button is-info">پرداخت الکترونیکی شهریه</a>
-            </div>
-        </div>
+        <b-tabs>
+            <b-tab-item label="پرداخت شهریه">
+                <div class="box my-light">
+                    <div class="content">
+                        <b-table :data="maliData" :columns="maliColumns"></b-table>
+                    </div>
+                    <div class="has-text-centered">
+                        <a class="button is-info">پرداخت الکترونیکی</a>
+                        <a class="button is-info">پرداخت الکترونیکی شهریه</a>
+                    </div>
+                </div>
+            </b-tab-item>
+
+            <b-tab-item label="شارژ حساب کاربری">
+                <div class="box my-light">
+                    <div class="content">
+                        <div class="columns">
+                            <div class="column is-one-third">
+                                <b-field grouped>
+                                    <b-input v-model="priceOfCharge" placeholder="مبلغ شارژ"></b-input>
+                                    <p class="control marg-this-control">
+                                        <button class="button is-primary" @click="chargeAccount">شارژ کن</button>
+                                    </p>
+                                </b-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b-tab-item>
+        </b-tabs>
     </div>
 </template>
 
 <script>
+    import {
+        mapActions
+    } from 'vuex';
+    import {
+        mapGetters
+    } from 'vuex';
+
     export default {
         data() {
             return {
                 title1: 'وضعیت نهایی تراز مالی دانشجو',
+                priceOfCharge: 0,
                 tarazeMali: {
                     jameKoliBedehKari: 1000,
                     jameKoleBestanKari: 2000,
@@ -44,21 +74,29 @@
                     taraz: 0,
 
                 },
-                maliData: [
-                    { 'id': 1, 'code_term': '961', 'onvane_term_tahsili': 'نیم سال اول تحصیلی - ۹۶ − ۹۷', 
-                    
-                    'last_status_of_student_term': 'ثبت نام عادی / ممتاز', 'stable_term_tution': 2066406, 
-                    'sum_of_unstable_tution': 5223873, 'sum_of_unstable_tution_and_stable_tution':  7290279 ,
-                     },
+                maliData: [{
+                        'id': 1,
+                        'code_term': '961',
+                        'onvane_term_tahsili': 'نیم سال اول تحصیلی - ۹۶ − ۹۷',
 
-                    { 'id': 2, 'code_term': '962', 'onvane_term_tahsili': 'نیم سال دوم تحصیلی - ۹۶ − ۹۷', 
-                    
-                    'last_status_of_student_term': 'مجاز به حذف و اضافه / تایید حذف و اضافه توسط دانشجو', 'stable_term_tution': 2066406, 
-                    'sum_of_unstable_tution': 6298405, 'sum_of_unstable_tution_and_stable_tution':  8364811 ,
-                     },
-                ],
-                maliColumns: [
+                        'last_status_of_student_term': 'ثبت نام عادی / ممتاز',
+                        'stable_term_tution': 2066406,
+                        'sum_of_unstable_tution': 5223873,
+                        'sum_of_unstable_tution_and_stable_tution': 7290279,
+                    },
+
                     {
+                        'id': 2,
+                        'code_term': '962',
+                        'onvane_term_tahsili': 'نیم سال دوم تحصیلی - ۹۶ − ۹۷',
+
+                        'last_status_of_student_term': 'مجاز به حذف و اضافه / تایید حذف و اضافه توسط دانشجو',
+                        'stable_term_tution': 2066406,
+                        'sum_of_unstable_tution': 6298405,
+                        'sum_of_unstable_tution_and_stable_tution': 8364811,
+                    },
+                ],
+                maliColumns: [{
                         field: 'id',
                         label: 'شماره',
                         width: '10',
@@ -94,9 +132,27 @@
                     }
                 ]
             }
+        },
+        methods: {
+            ...mapActions([
+                'chargeAcc',
+                'dechargeAcc',
+            ]),
+            chargeAccount() {
+                let price = Number(this.priceOfCharge);
+                this.chargeAcc(price);
+            },
+        },
+        computed: {
+            ...mapGetters([
+                'getCharge',
+            ]),
         }
     }
 </script>
 
 <style lang="scss" scoped>
+    .marg-this-control {
+        margin-right: 1em;
+    }
 </style>

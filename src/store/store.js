@@ -6,7 +6,8 @@ import studentDetails from './modules/studentDetails';
 import setting from './modules/setting';
 import mailBox from './modules/mailBox';
 import pishVahed from './modules/pishEntekhabVahed';
-
+import accountCharge from './modules/accountCharge';
+import orderFood from './modules/orderFood';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -16,6 +17,8 @@ export default new Vuex.Store({
     setting,
     mailBox,
     pishVahed,
+    accountCharge,
+    orderFood,
   },
   // }
   // state: {
