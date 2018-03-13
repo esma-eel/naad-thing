@@ -58,10 +58,6 @@ let Menu = [
                 link: '/preChooseUnit',
             },
             {
-                tagText: 'شارژ حساب کاربری',
-                link: '/chargeAccount',
-            },
-            {
                 tagText: 'سرویس سفارش غذا',
                 link: '/rqOrderFood',
             },
