@@ -26,10 +26,8 @@
             <span>حذف انتخاب شده ها</span>
         </button>
 
-        <div class="box">
-
+        <div class="box my-light">
             <b-tabs>
-
                 <b-tab-item label="لیست درس ها">
                     <b-table :data="getPishVahedha" :columns="columns" :checked-rows.sync="selected" :checkable="asIsay"></b-table>
                 </b-tab-item>
