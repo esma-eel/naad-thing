@@ -5,6 +5,7 @@ import readyToSelectUnits from './modules/readyToSelectUnits';
 import studentDetails from './modules/studentDetails';
 import setting from './modules/setting';
 import mailBox from './modules/mailBox';
+import pishVahed from './modules/pishEntekhabVahed';
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     readyToSelectUnits,
     studentDetails,
     setting,
-    mailBox
+    mailBox,
+    pishVahed,
   },
   // }
   // state: {

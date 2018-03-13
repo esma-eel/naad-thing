@@ -32,6 +32,7 @@
       this.$store.dispatch('initLessonData');
       this.$store.dispatch('initlessonColumns');
       this.$store.dispatch('initMessages');
+      this.$store.dispatch('initPishVahedha');
     },
     components: {
       'my-menu': Menu,
